@@ -9,13 +9,13 @@ trigger:
      - master
  paths:
    include:
-     - dotnet/aspnet/mssqldb/*
+     - dotnet/aspnetcore/webappWithTests/*
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'vs2017-win2016'
 
 variables:
-  solution: 'dotnet/aspnet/mssqldb/Application/*.sln'
+  solution: 'dotnet/aspnetcore/webappWithTests/Application/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
@@ -32,6 +32,24 @@ steps:
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- task: VSTest@2
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: |
+      **\*test*.dll
+      !**\*TestAdapter.dll
+      !**\obj\**
+    searchFolder: '$(System.DefaultWorkingDirectory)/dotnet/aspnetcore/webappWithTests/Application/aspnet-core-dotnet-core.UnitTests'
+
+- task: VSTest@2
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: |
+      **\*test*.dll
+      !**\*TestAdapter.dll
+      !**\obj\**
+    searchFolder: '$(System.DefaultWorkingDirectory)/dotnet/aspnetcore/webappWithTests/Application/aspnet-core-dotnet-core.FunctionalTests'
 
 - task: PublishBuildArtifacts@1
   inputs:
