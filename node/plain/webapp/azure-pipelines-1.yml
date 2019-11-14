@@ -22,7 +22,7 @@ steps:
   displayName: 'Install Node.js'
 
 - script:
-    cd node/plain/webapp/Application
     npm install
     npm run build
   displayName: 'npm install and build'
+  workingDirectory: "node/plain/webapp/Application"
