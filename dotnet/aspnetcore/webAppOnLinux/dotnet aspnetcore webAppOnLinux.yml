@@ -12,9 +12,7 @@ trigger:
      - dotnet/aspnetcore/webAppOnLinux/*
 
 pool:
-  vmImage: 'ubuntu-latest'
-  demands:
-    - npm
+  vmImage: 'vs2017-win2016'
 
 variables:
   solution: 'dotnet/aspnetcore/webAppOnLinux/Application/*.sln'
@@ -22,29 +20,18 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: Npm@1
-  displayName: 'Run npm install'
-  inputs:
-    verbose: false
+- task: NuGetToolInstaller@1
 
-- task: UseDotNet@2
-  displayName: 'Use .NET Core SDK 2.1.505'
+- task: NuGetCommand@2
   inputs:
-    packageType: sdk
-    version: 2.1.505
+    restoreSolution: '$(solution)'
 
-- task: DotNetCoreCLI@2
-  displayName: 'Restore project dependencies'
+- task: VSBuild@1
   inputs:
-    command: 'restore'
-    projects: 'dotnet/aspnetcore/webAppOnLinux/Application/aspnet-core-dotnet-core/*.csproj'
-
-- task: DotNetCoreCLI@2
-  displayName: 'Build the project'
-  inputs:
-    command: 'build'
-    arguments: '--no-restore --configuration Release'
-    projects: 'dotnet/aspnetcore/webAppOnLinux/Application/aspnet-core-dotnet-core/*.csproj'
+    solution: '$(solution)'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
 
 - task: PublishBuildArtifacts@1
   inputs:
