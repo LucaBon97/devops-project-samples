@@ -13,7 +13,7 @@ trigger:
       - html/webapp/Application/*
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'windows-latest'
 
 steps:
 - task: ArchiveFiles@2
