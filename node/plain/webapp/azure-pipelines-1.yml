@@ -9,7 +9,7 @@ trigger:
      - master
  paths:
    include:
-     - node/plain/webapp/Application/*
+     - node/plain/webapp/Application
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -22,7 +22,5 @@ steps:
 
 - script: |
     npm install
-    npm audit fix
     npm run build
-    npm audit fix
   displayName: 'npm install and build'
