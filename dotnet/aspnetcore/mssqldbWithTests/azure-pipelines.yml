@@ -41,6 +41,15 @@ steps:
       !**\*TestAdapter.dll
       !**\obj\**
     searchFolder: '$(System.DefaultWorkingDirectory)/dotnet/aspnetcore/mssqldbWithTests/Application/aspnet-core-dotnet-core.UnitTests'
+- task: VSTest@2
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: |
+      **\*test*.dll
+      !**\*TestAdapter.dll
+      !**\obj\**
+    searchFolder: '$(System.DefaultWorkingDirectory)/$(System.DefaultWorkingDirectory)/dotnet/aspnetcore/mssqldbWithTests/Application/aspnet-core-dotnet-core.FunctionalTests'''
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
