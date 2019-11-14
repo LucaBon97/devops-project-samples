@@ -36,14 +36,14 @@ steps:
   displayName: 'Restore project dependencies'
   inputs:
     command: 'restore'
-    projects: 'dotnet/aspnetcore/webAppOnLinux/Application/*.sln'
+    projects: 'dotnet/aspnetcore/webAppOnLinux/Application/aspnet-core-dotnet-core/*.csproj'
 
 - task: DotNetCoreCLI@2
   displayName: 'Build the project'
   inputs:
     command: 'build'
     arguments: '--no-restore --configuration Release'
-    projects: 'dotnet/aspnetcore/webAppOnLinux/Application/*.sln'
+    projects: 'dotnet/aspnetcore/webAppOnLinux/Application/aspnet-core-dotnet-core/*.csproj'
 
 - task: PublishBuildArtifacts@1
   inputs:
