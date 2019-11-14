@@ -25,4 +25,8 @@ steps:
     npm install
     npm run build
   displayName: 'npm install and build'
-  workingDirectory: "node/plain/webapp/Application"
+  workingDirectory: 
+- task: Npm@1
+  inputs:
+    command: 'publish'
+    workingDir: '"node/plain/webapp/Application"'
