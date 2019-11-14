@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/PolentaZola/EsercitazioneGruppo3/_apis/build/status/dotnet%20aspnetcore%20webAppOnLinux?branchName=master)](https://dev.azure.com/PolentaZola/EsercitazioneGruppo3/_build/latest?definitionId=8&branchName=master)
+
 | Language | Framework | Platform | Author |
 | -------- | -------- |--------|--------|
 | ASP.NET Core | .NET Core 1.1 | Azure Web App, Virtual Machines |
