@@ -12,7 +12,7 @@ trigger:
      - dotnet/aspnetcore/mssqldbWithTests/*
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'vs2017-win2016'
 
 variables:
   solution: 'dotnet/aspnetcore/mssqldbWithTests/Application/*.sln'
@@ -48,7 +48,7 @@ steps:
       **\*test*.dll
       !**\*TestAdapter.dll
       !**\obj\**
-    searchFolder: '$(System.DefaultWorkingDirectory)/$(System.DefaultWorkingDirectory)/dotnet/aspnetcore/mssqldbWithTests/Application/aspnet-core-dotnet-core.FunctionalTests'''
+    searchFolder: '$(System.DefaultWorkingDirectory)/dotnet/aspnetcore/mssqldbWithTests/Application/aspnet-core-dotnet-core.FunctionalTests'''
 
 - task: PublishBuildArtifacts@1
   inputs:
