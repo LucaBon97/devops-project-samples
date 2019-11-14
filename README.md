@@ -1,4 +1,4 @@
-
+[![Build Status](https://dev.azure.com/PolentaZola/EsercitazioneGruppo3/_apis/build/status/LucaBon97.devops-project-samples?branchName=master)](https://dev.azure.com/PolentaZola/EsercitazioneGruppo3/_build/latest?definitionId=1&branchName=master)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
