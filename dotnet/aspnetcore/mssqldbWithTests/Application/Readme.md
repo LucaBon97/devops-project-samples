@@ -2,7 +2,7 @@
 | -------- | -------- |--------|--------|
 | ASP.NET Core | .NET Core 1.1 | Azure Web App, Virtual Machines |
 
-
+[![Build Status](https://dev.azure.com/PolentaZola/EsercitazioneGruppo3/_apis/build/status/dotnet%20aspnetcore%20mssqldbWithTests?branchName=master)](https://dev.azure.com/PolentaZola/EsercitazioneGruppo3/_build/latest?definitionId=11&branchName=master)
 # ASP.NET Core MVC application 
 
 Sample ASP.NET Core MVC application built using Visual Studio 2017.
