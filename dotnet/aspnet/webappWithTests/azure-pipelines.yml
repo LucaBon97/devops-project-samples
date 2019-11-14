@@ -36,7 +36,7 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
-    projects: 'dotnet/aspnet/webappWithTests/Application/SampleWebApplication.UnitTests/SampleWebApplication.UnitTests.csproj'
+    projects: 'dotnet/aspnet/webappWithTests/Application/SampleWebApplication.UnitTests/*.csproj'
 
 - task: PublishBuildArtifacts@1
   inputs:
