@@ -33,10 +33,10 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: VSTest@2
+- task: DotNetCoreCLI@2
   inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    command: 'test'
+    projects: 'dotnet/aspnet/webappWithTests/Application/SampleWebApplication.UnitTests/SampleWebApplication.UnitTests.csproj'
 
 - task: PublishBuildArtifacts@1
   inputs:
