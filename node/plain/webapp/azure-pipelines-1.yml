@@ -9,7 +9,6 @@ trigger:
      - master
  paths:
    include:
-     - node/plain/webapp/*
      - node/plain/webapp/Application/*
 
 pool:
