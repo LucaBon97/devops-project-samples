@@ -30,21 +30,20 @@ steps:
   displayName: 'Use .NET Core SDK 2.1.505'
   inputs:
     packageType: sdk
-
     version: 2.1.505
 
 - task: DotNetCoreCLI@2
   displayName: 'Restore project dependencies'
   inputs:
     command: 'restore'
-    projects: 'dotnet/aspnetcore/webAppOnLinux/Application/aspnet-core-dotnet-core/*.csproj'
+    projects: 'dotnet/aspnetcore/webAppOnLinux/Application/*.sln'
 
 - task: DotNetCoreCLI@2
-  displayName: 'Build the project - Release'
+  displayName: 'Build the project'
   inputs:
     command: 'build'
     arguments: '--no-restore --configuration Release'
-    projects: 'dotnet/aspnetcore/webAppOnLinux/Application/aspnet-core-dotnet-core/*.csproj'
+    projects: 'dotnet/aspnetcore/webAppOnLinux/Application/*.sln'
 
 - task: PublishBuildArtifacts@1
   inputs:
