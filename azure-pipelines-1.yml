@@ -33,4 +33,4 @@ steps:
 - script: |
     npm test
   displayName: 'npm install and build'
-  workingDirectory: 'node/plain/webappWithTests/'
+  workingDirectory: 'node/plain/webappWithTests/Tests'
