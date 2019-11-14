@@ -12,7 +12,7 @@ trigger:
      - dotnet/aspnetcore/functionApp/*
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'vs2017-win2016'
 
 variables:
   solution: 'dotnet/aspnetcore/functionApp/Application/*.sln'
@@ -32,11 +32,6 @@ steps:
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'test'
-    projects: 'devops-project-samples/dotnet/aspnetcore/functionApp/Application/SampleFunctionApp.Test/*.csproj'
 
 - task: PublishBuildArtifacts@1
   inputs:
