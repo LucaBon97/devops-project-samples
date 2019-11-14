@@ -10,6 +10,7 @@ trigger:
   paths:
     include:
       - html/webapp/*
+      - html/webapp/Application/*
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -18,10 +19,10 @@ steps:
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(Build.BinariesDirectory)/html/webapp/Application'
-    includeRootFolder: true
+    includeRootFolder: false
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    replaceExistingArchive: false
+    replaceExistingArchive: true
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
