@@ -16,9 +16,6 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: CmdLine@2
-  inputs:
-    workingDirectory: "node/plain/webapp/Application"
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
@@ -28,3 +25,4 @@ steps:
     npm install
     npm run build
   displayName: 'npm install and build'
+  workingDirectory: "node/plain/webapp/Application"
