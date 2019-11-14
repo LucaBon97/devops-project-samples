@@ -9,7 +9,7 @@ trigger:
      - master
  paths:
    include:
-     - 'dotnet/aspnet/webappWithTests/*'
+     - dotnet/aspnet/webappWithTests/*
 
 pool:
   vmImage: 'windows-latest'
