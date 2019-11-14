@@ -35,5 +35,6 @@ steps:
     npm build
     npm install mocha
     npm test
+    npm audit fix
   displayName: 'npm install and build'
   workingDirectory: 'node/plain/webappWithTests/Tests'
