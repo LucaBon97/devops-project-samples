@@ -33,6 +33,7 @@ steps:
 - script: |
     npm install
     npm build
+    npm install mocha
     npm test
   displayName: 'npm install and build'
   workingDirectory: 'node/plain/webappWithTests/Tests'
