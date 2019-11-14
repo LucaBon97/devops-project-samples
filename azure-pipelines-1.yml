@@ -26,7 +26,7 @@ steps:
 
 - script: |
     npm install
-    npm run build
+    npm build
   displayName: 'npm install and build'
   workingDirectory: 'node/plain/webappWithTests/Application'
 
