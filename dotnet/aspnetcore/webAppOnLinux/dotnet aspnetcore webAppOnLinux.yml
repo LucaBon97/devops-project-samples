@@ -13,6 +13,8 @@ trigger:
 
 pool:
   vmImage: 'ubuntu-latest'
+  demands:
+    - npm
 
 variables:
   solution: 'dotnet/aspnetcore/webAppOnLinux/Application/*.sln'
@@ -20,11 +22,10 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: NuGetToolInstaller@1
-
-- task: NuGetCommand@2
+- task: Npm@1
+  displayName: 'Run npm install'
   inputs:
-    restoreSolution: '$(solution)'
+    verbose: false
 
 - task: UseDotNet@2
   displayName: 'Use .NET Core SDK 2.1.505'
