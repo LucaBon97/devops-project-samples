@@ -18,7 +18,7 @@ pool:
 steps:
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)/html/webapp/Application'
+    rootFolderOrFile: '$(Build.DefaultWorkingDirectory)/html/webapp/Application'
     includeRootFolder: false
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
